@@ -5,13 +5,13 @@ description = ""
 authors = ["tinkerborg <tinkerborg@users.noreply.github.com>"]
 
 [tool.poetry.dependencies]
-python = "^3.7"
-uplink = "^0.9.1"
+python = "^3.10"
+uplink = "^0.9.5"
 marshmallow = "^3.5.1"
 marshmallow-dataclass = "^7.5.0"
 inflection = "^0.4.0"
 marshmallow_enum = "^1.5.1"
-PyOpenSSL = "^19.1.0"
+PyOpenSSL = "^24.2.1"
 paho-mqtt = "^1.5.0"
 attrdict = "^2.0.1"
 deepmerge = "^0.1.0"
