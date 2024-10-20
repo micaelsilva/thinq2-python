@@ -41,18 +41,15 @@ files = [
 ]
 
 [[package]]
-name = "attrdict"
-version = "2.0.1"
+name = "attrdictionary"
+version = "1.0.0"
 description = "A dict with attribute-style access"
 optional = false
 python-versions = "*"
 files = [
-    {file = "attrdict-2.0.1-py2.py3-none-any.whl", hash = "sha256:9432e3498c74ff7e1b20b3d93b45d766b71cbffa90923496f82c4ae38b92be34"},
-    {file = "attrdict-2.0.1.tar.gz", hash = "sha256:35c90698b55c683946091177177a9e9c0713a0860f0e049febd72649ccd77b70"},
+    {file = "attrdictionary-1.0.0-py2.py3-none-any.whl", hash = "sha256:55552daf9e0b7ff1d874db0d10211a9ed102c57987538bd5d86e05265ba4b5dc"},
+    {file = "attrdictionary-1.0.0.tar.gz", hash = "sha256:c7c9807cac001cfa0d042ebf23f373f288c93e6da6454ec5ac2ba76af2882db5"},
 ]
-
-[package.dependencies]
-six = "*"
 
 [[package]]
 name = "attrs"
@@ -1171,4 +1168,4 @@ files = [
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "7568b256dfc18788d007b9a02a78695f2451a007b45c9475a1b17a70bdd6b7ba"
+content-hash = "4c4a0346a9d7d31912a80095159c1c32d571329293b279502a07e7e4e2a7c35f"

@@ -3,7 +3,7 @@ import inspect
 
 from dataclasses import is_dataclass
 
-from attrdict import AttrDict
+from attrdictionary import AttrDict
 from marshmallow import EXCLUDE, Schema
 from inflection import camelize
 

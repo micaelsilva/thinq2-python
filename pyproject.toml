@@ -13,7 +13,7 @@ inflection = "^0.4.0"
 marshmallow_enum = "^1.5.1"
 PyOpenSSL = "^24.2.1"
 paho-mqtt = "^1.5.0"
-attrdict = "^2.0.1"
+attrdictionary = "^1.0.0"
 deepmerge = "^0.1.0"
 
 [tool.poetry.dev-dependencies]
