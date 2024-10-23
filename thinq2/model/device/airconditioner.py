@@ -8,5 +8,4 @@ from .base import Device
 
 @dataclass(base_schema=CamelCaseSchema)
 class AirConditionerDevice(Device):
-    state = 0
     operation: int = field(metadata=dict(data_key="airState.operation"))
