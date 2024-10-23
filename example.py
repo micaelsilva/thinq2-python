@@ -6,8 +6,8 @@ import signal
 from thinq2.controller.auth import ThinQAuth
 from thinq2.controller.thinq import ThinQ
 
-LANGUAGE_CODE = os.environ.get("LANGUAGE_CODE", "ko-KR")
-COUNTRY_CODE = os.environ.get("COUNTRY_CODE", "KR")
+LANGUAGE_CODE = os.environ.get("LANGUAGE_CODE", "pt-BR")
+COUNTRY_CODE = os.environ.get("COUNTRY_CODE", "BR")
 STATE_FILE = os.environ.get("STATE_FILE", "state.json")
 
 #############################################################################
@@ -64,7 +64,7 @@ if len(devices.items) == 0:
 
 print("UserID: {}".format(thinq.auth.profile.user_id))
 print("User #: {}\n".format(thinq.auth.profile.user_no))
-print("Devices:\n")
+print("Devices:")
 
 
 for device in devices.items:
