@@ -39,7 +39,7 @@ class DeviceDescriptor:
     cur_offset: int
     cur_offset_display: str
     new_reg_yn: str
-    remote_control_type: str
+    # remote_control_type: str
     user_no: str
     # model_json_ver: float
     # model_json_uri: str
@@ -69,8 +69,8 @@ class DeviceDescriptor:
 
     @post_load(pass_original=True)
     def polymorphism(self, item, data, **kwargs):
-        device_schema = device_types.get(item.device_type, Device).Schema()
-        item.snapshot = device_schema.load(data.get("snapshot", {}))
+        device_schema = device_types.get(item.get("device_type"), Device).Schema()
+        item["snapshot"] = device_schema.load(data.get("snapshot", {}))
         return item
 
 
