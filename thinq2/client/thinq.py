@@ -43,5 +43,5 @@ class ThinQClient(BaseClient):
 
     @json
     @post("service/users/client/certificate")
-    def register_iot(self, csr: Field) -> ThinQResult(IOTRegistration):
+    def register_iot(self, service_code: Field, csr: Field) -> ThinQResult(IOTRegistration):
         """Register an IoT/MQTT session, given a csr"""
