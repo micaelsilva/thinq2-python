@@ -13,7 +13,7 @@ from thinq2.client.common import CommonClient
 from thinq2.util import memoize
 from thinq2.util.filesystem import TempDir
 
-from thinq2 import AWS_IOTT_CA_CERT_URL, AWS_IOTT_ALPN_PROTOCOL
+from thinq2 import AWS_IOTT_CA_CERT_URL, AWS_IOTT_ALPN_PROTOCOL, SERVICE_CODE
 
 
 @controller(MQTTConfiguration)
@@ -79,7 +79,7 @@ class ThinQMQTT:
         private_key_path = temp_dir.file(self.private_key)
         client_cert_path = temp_dir.file(self.registration.certificate_pem)
 
-        context = ssl.create_default_context(ssl.Purpose.CLIENT_AUTH)
+        context = ssl.create_default_context(ssl.Purpose.SERVER_AUTH)
         context.set_alpn_protocols([AWS_IOTT_ALPN_PROTOCOL])
         context.load_verify_locations(cafile=ca_cert_path)
         context.load_cert_chain(certfile=client_cert_path, keyfile=private_key_path)
@@ -100,17 +100,16 @@ class ThinQMQTT:
     def csr(self):
         key = crypto.load_privatekey(FILETYPE_PEM, self.private_key)
         csr = crypto.X509Req()
-        csr.get_subject().CN = "AWS IoT Certificate"
-        csr.get_subject().O = "Amazon"
+        csr.get_subject().CN = "lg_thinq"
         csr.set_pubkey(key)
-        csr.sign(key, "sha256")
+        csr.sign(key, "sha512")
         return str(crypto.dump_certificate_request(FILETYPE_PEM, csr), "utf8")
 
     @initializer
     def registration(self):
         if self.thinq_client.get_registered() is False:
             self.thinq_client.register()
-        return self.thinq_client.register_iot(csr=self.csr)
+        return self.thinq_client.register_iot(service_code=SERVICE_CODE, csr=self.csr)
 
     @initializer
     def route(self):
