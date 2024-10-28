@@ -47,7 +47,7 @@ class BearerToken(Header):
 
 
 @inject(RequestAuditor(lg_oauth_signer))
-@headers({"Accept": "application/json"})
+@headers({"Accept": "application/json", "User-Agent": thinq2.APP_USER_AGENT})
 class OAuthClient(Consumer):
     """LG ThinQ OAuth Client"""
 
