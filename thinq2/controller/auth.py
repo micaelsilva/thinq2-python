@@ -65,6 +65,7 @@ class ThinQAuth(RequestTemplate):
     @property
     def base_headers(self):
         return {
+            "User-Agent": thinq2.APP_USER_AGENT,
             "x-client-id": self.client_id,
             "x-country-code": self.country_code,
             "x-language-code": self.language_code,
