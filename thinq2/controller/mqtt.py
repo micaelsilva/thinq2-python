@@ -5,6 +5,7 @@ from urllib.parse import urlparse
 from OpenSSL import crypto
 from OpenSSL.SSL import FILETYPE_PEM
 from paho.mqtt.client import Client
+import socks
 
 from thinq2.model.mqtt import MQTTConfiguration, MQTTMessage
 from thinq2.schema import controller, initializer
@@ -58,6 +59,7 @@ class ThinQMQTT:
     def client(self):
         client = Client(client_id=self._auth.client_id)
         client.tls_set_context(self.ssl_context)
+        client.proxy_set(proxy_type=socks.SOCK5, proxy_addr="127.0.0.1", proxy_port=8889)
         client.on_connect = self.on_connect
         client.on_message = self.on_message
         return client
